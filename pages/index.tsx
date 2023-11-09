@@ -26,9 +26,9 @@ export default function Home() {
           Go to the about page
         </Link>
         <ProTip />
-        <MyCarousel/>
         <Copyright />
       </Box>
+      <MyCarousel/>
     </Container>
   );
 }
