@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Link from '../src/Link';
 import ProTip from '../src/ProTip';
 import Copyright from '../src/Copyright';
+import MyCarousel from '../src/Carousel/Carousel';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           Go to the about page
         </Link>
         <ProTip />
+        <MyCarousel/>
         <Copyright />
       </Box>
     </Container>
