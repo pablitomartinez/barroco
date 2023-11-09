@@ -6,6 +6,7 @@ import Link from '../src/Link';
 import ProTip from '../src/ProTip';
 import Copyright from '../src/Copyright';
 import NavBar from '../src/NavBar';
+import MyCarousel from '../src/Carousel/Carousel';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <ProTip />
         <Copyright />
       </Box>
+      <MyCarousel/>
     </Container>
   );
 }
