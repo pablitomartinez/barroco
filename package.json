@@ -17,8 +17,10 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "next": "latest",
+    "nodemailer": "^6.9.7",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-material-ui-carousel": "^3.4.2"
   },
   "devDependencies": {
     "@types/node": "latest",
