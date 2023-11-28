@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,ChangeEvent,FocusEvent } from 'react';
 import { TextField, Button, Grid, Typography, Container } from '@mui/material';
 import { sendContactForm } from '../lib/api';
 // interface ContactFormProps {
@@ -33,14 +33,14 @@ const ContactForm = () => {
 
   const { values, isLoading } = state;
 
-  const onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    setTouched((prev) => ({
-      ...prev,
-      [target.name]: true,
-    }));
+  // const onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+  //   setTouched((prev:any) => ({
+  //     ...prev,
+  //     [target.name]: true,
+  //   }));
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setState((prev) => ({
+    setState((prev:any) => ({
       ...prev,
       values: {
         ...prev.values,
@@ -49,7 +49,7 @@ const ContactForm = () => {
     }));
 
   const onSubmit = async () => {
-    setState((prev) => ({
+    setState((prev:any) => ({
       ...prev,
       isLoading: true,
     }));
@@ -73,6 +73,7 @@ const ContactForm = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Nombre"
               name="name"
               value={values.name}
@@ -82,6 +83,7 @@ const ContactForm = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Correo Electrónico"
               name="email"
               value={values.email}
@@ -91,6 +93,7 @@ const ContactForm = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Mensaje"
               name="message"
               value={values.message}
