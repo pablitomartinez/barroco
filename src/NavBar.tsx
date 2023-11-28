@@ -51,7 +51,7 @@ function ResponsiveAppBar() {
           {/* ... (resto del código) */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
-            {pages.map((page) => (
+            {pages.map((page) => (    
               <Link key={page} href={`/${page}`} passHref>
                 <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
                   {page.replace('-', ' ')}

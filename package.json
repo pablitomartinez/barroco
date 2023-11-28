@@ -20,7 +20,8 @@
     "nodemailer": "^6.9.7",
     "react": "latest",
     "react-dom": "latest",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-material-ui-carousel": "^3.4.2",
+    "react-scroll": "^1.9.0"
   },
   "devDependencies": {
     "@types/node": "latest",
