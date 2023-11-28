@@ -1,32 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState,ChangeEvent,FocusEvent } from 'react';
 import { TextField, Button, Grid, Typography, Container } from '@mui/material';
+import { sendContactForm } from '../lib/api';
+// interface ContactFormProps {
+//   onSubmit: (formData: FormData) => void;
+// }
 
-interface ContactFormProps {
-  onSubmit: (formData: FormData) => void;
-}
+// interface FormData {
+//   name: string;
+//   email: string;
+//   message: string;
+// }
 
-interface FormData {
+interface FormValues {
   name: string;
   email: string;
   message: string;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: '',
-  });
+interface FormState {
+  values: FormValues;
+  isLoading: boolean;
+};
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+const initValues: FormValues = { name: "", email: "", message: "" };
+
+const initState: FormState = { values: initValues, isLoading: false };
+
+
+const ContactForm = () => {
+  const [state, setState] = useState(initState);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const { values, isLoading } = state;
+
+  // const onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+  //   setTouched((prev:any) => ({
+  //     ...prev,
+  //     [target.name]: true,
+  //   }));
+
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setState((prev:any) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
+  const onSubmit = async () => {
+    setState((prev:any) => ({
+      ...prev,
+      isLoading: true,
+    }));
+    await sendContactForm(values);
+    // setState({
+    //   values: initValues,
+    //   isLoading: false,
+    // });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
 
   return (
     <Container style={{ textAlign: 'center', padding: '16px' }}>
@@ -36,31 +69,34 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       <Typography variant="body1" style={{ marginBottom: '32px' }}>
         Sumérgete en la riqueza artística y cultural de la era barroca. Ya sea que quieras registrarte en nuestros recorridos o simplemente obtener información, estás en el lugar correcto.
       </Typography>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={onSubmit}> */}
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Nombre"
               name="name"
-              value={formData.name}
+              value={values.name}
               onChange={handleChange}
               fullWidth
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Correo Electrónico"
               name="email"
-              value={formData.email}
+              value={values.email}
               onChange={handleChange}
               fullWidth
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
+              type='text'
               label="Mensaje"
               name="message"
-              value={formData.message}
+              value={values.message}
               onChange={handleChange}
               multiline
               rows={4}
@@ -68,13 +104,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary">
+            <Button onClick={onSubmit} type="submit" variant="contained" color="primary">
               Registrarse
             </Button>
           </Grid>
         </Grid>
-      </form>
-      <Typography variant="body1" style={{ marginTop: '16px', marginBottom: '16px' }}>
+      {/* </form> */}
+      {/* <Typography variant="body1" style={{ marginTop: '16px', marginBottom: '16px' }}>
         Al registrarte, tendrás la oportunidad de explorar los lugares más emblemáticos del Barroco de la mano de guías turísticos apasionados. Desde majestuosas catedrales hasta encantadoras plazas, cada recorrido te sumergirá en la belleza y la historia de esta época fascinante.
       </Typography>
       <Typography variant="body1" style={{ marginTop: '16px', marginBottom: '16px' }}>
@@ -82,7 +118,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       </Typography>
       <Typography variant="body1" style={{ marginTop: '32px', fontWeight: 'bold' }}>
         ¡Gracias por elegirnos como tu guía en este extraordinario viaje a través del tiempo y la historia! 🎨🏰✈️
-      </Typography>
+      </Typography> */}
     </Container>
   );
 };
