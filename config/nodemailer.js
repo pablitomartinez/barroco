@@ -8,7 +8,10 @@ export const transporter = nodemailer.createTransport({
     auth:{
         user:email,
         pass
-    }
+    },
+    tls: {
+        rejectUnauthorized: false
+      }
 });
 
 export const mailOptions = {
