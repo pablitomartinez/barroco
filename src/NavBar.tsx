@@ -45,11 +45,8 @@ function ResponsiveAppBar() {
               color: 'inherit',
             }}
           >
-            <Link href="/" passHref>
                 LOGO
-            </Link>
           </Typography>
-
           {/* ... (resto del código) */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
