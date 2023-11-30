@@ -11,7 +11,7 @@ const SobreNosotros: React.FC = () => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg" style={{ marginTop: '2rem' }}>
+      <Container maxWidth="lg" style={{ marginTop: '2rem' }} id='sobre-nosotros'>
         <Typography variant="h4" align="center" gutterBottom>
           Somos Nosotros
         </Typography>

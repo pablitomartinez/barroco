@@ -7,9 +7,9 @@ import Link from '../src/Link';
 import ProTip from '../src/ProTip';
 import Copyright from '../src/Copyright';
 
-export default function About() {
+export default function Experiencias() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" id='experiencias'>
       <Box
         sx={{
           my: 4,

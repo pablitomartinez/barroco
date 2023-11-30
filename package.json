@@ -20,11 +20,13 @@
     "nodemailer": "^6.9.7",
     "react": "latest",
     "react-dom": "latest",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-material-ui-carousel": "^3.4.2",
+    "react-scroll": "^1.9.0"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
+    "@types/react-scroll": "^1.8.10",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "typescript": "latest"

@@ -1,5 +1,7 @@
 // components/ResponsiveAppBar.tsx
 import * as React from 'react';
+import { Link } from 'react-scroll/modules';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const pages = ['experiencias', 'contacto', 'sobre-nosotros', 'unite-al-club', 'Proximos-Eventos'];
 
@@ -43,20 +45,26 @@ function ResponsiveAppBar() {
               color: 'inherit',
             }}
           >
-            <Link href="/" passHref>
                 LOGO
-            </Link>
           </Typography>
-
           {/* ... (resto del código) */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'space-around' } }}>
-            {pages.map((page) => (
-              <Link key={page} href={`/${page}`} passHref>
+            {pages.map((page) => (    
+              // <Link key={page} href={`/${page}`} passHref>
+              <Link
+                activeClass="active" 
+                to={page} 
+                spy={true} 
+                smooth={true} 
+                offset={50} 
+                duration={500} 
+              >
                 <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
                   {page.replace('-', ' ')}
                 </Button>
               </Link>
+              // </Link>
             ))}
           </Box>
         </Toolbar>

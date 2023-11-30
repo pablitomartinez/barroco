@@ -62,7 +62,7 @@ const ContactForm = () => {
 
 
   return (
-    <Container style={{ textAlign: 'center', padding: '16px' }}>
+    <Container style={{ textAlign: 'center', padding: '16px' }} id='contacto'>
       <Typography variant="h4" style={{ marginBottom: '16px', color: '#1976D2' }}>
         ¡Descubre el Barroco con Nosotros!
       </Typography>
